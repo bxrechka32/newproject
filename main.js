@@ -93,24 +93,43 @@ dlg?.addEventListener('close', () => {
 
 
 
-// Модальное окно контактов
+// Модальное окно NeoDesign
 const contactDialog = document.getElementById('contactDialog');
 const openDialogBtn = document.getElementById('openDialog');
+const openDialogBtn2 = document.getElementById('openDialog2');
 const closeDialogBtn = document.getElementById('closeDialog');
+const cancelDialogBtn = document.getElementById('cancelDialog');
 const contactForm = document.getElementById('contactForm');
 
 let lastActiveElement = null;
 
-// Открытие модалки
-openDialogBtn?.addEventListener('click', () => {
+// Функции для управления модалкой
+function openModal() {
     lastActiveElement = document.activeElement;
     contactDialog.showModal();
-    contactDialog.querySelector('input')?.focus();
-});
+    // Фокус на первое поле после анимации
+    setTimeout(() => {
+        contactDialog.querySelector('input')?.focus();
+    }, 300);
+}
+
+function closeModal() {
+    contactDialog.close();
+}
+
+// Открытие модалки
+openDialogBtn?.addEventListener('click', openModal);
+openDialogBtn2?.addEventListener('click', openModal);
 
 // Закрытие модалки
-closeDialogBtn?.addEventListener('click', () => {
-    contactDialog.close('cancel');
+closeDialogBtn?.addEventListener('click', closeModal);
+cancelDialogBtn?.addEventListener('click', closeModal);
+
+// Закрытие по клику на бэкдроп
+contactDialog?.addEventListener('click', (e) => {
+    if (e.target === contactDialog) {
+        closeModal();
+    }
 });
 
 // Маска телефона
@@ -119,7 +138,10 @@ phoneInput?.addEventListener('input', (e) => {
     const digits = e.target.value.replace(/\D/g, '').slice(0, 11);
     const normalized = digits.replace(/^8/, '7');
     
-    if (normalized.length === 0) return;
+    if (normalized.length === 0) {
+        e.target.value = '';
+        return;
+    }
     
     let formatted = '+7';
     if (normalized.length > 1) formatted += ` (${normalized.slice(1, 4)}`;
@@ -149,7 +171,7 @@ contactForm?.addEventListener('submit', (e) => {
         }
         
         const phone = contactForm.elements.phone;
-        if (phone?.validity.patternMismatch) {
+        if (phone?.value && phone.validity.patternMismatch) {
             phone.setCustomValidity('Телефон должен быть в формате +7 (900) 000-00-00');
         }
         
@@ -165,12 +187,25 @@ contactForm?.addEventListener('submit', (e) => {
     }
     
     // Успешная отправка
-    alert('Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.');
-    contactDialog.close('success');
-    contactForm.reset();
+    setTimeout(() => {
+        alert('✅ Сообщение успешно отправлено! Мы свяжемся с вами в течение 2 часов.');
+        closeModal();
+        contactForm.reset();
+    }, 500);
 });
 
 // Восстановление фокуса после закрытия модалки
 contactDialog?.addEventListener('close', () => {
     lastActiveElement?.focus();
 });
+
+// Плавное появление элементов
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+});
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
