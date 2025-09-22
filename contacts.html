@@ -13,11 +13,11 @@
                 <a href="index.html" class="site-header__brand">NeoDesign</a>
                 <nav class="site-nav">
                     <ul class="site-nav__list">
-                        <li><a href="index.html" class="site-nav__link">Главная</a></li>
-                        <li><a href="about.html" class="site-nav__link">О нас</a></li>
-                        <li><a href="contacts.html" class="site-nav__link" aria-current="page">Контакты</a></li>
+                        <li class="site-nav__item"><a href="index.html" class="site-nav__link">Главная</a></li>
+                        <li class="site-nav__item"><a href="about.html" class="site-nav__link">О нас</a></li>
+                        <li class="site-nav__item"><a href="contacts.html" class="site-nav__link" aria-current="page">Контакты</a></li>
                     </ul>
-                    <button class="theme-toggle">🌓</button>
+                    <button class="theme-toggle" aria-label="Переключить тему">🌓</button>
                 </nav>
             </div>
         </div>
@@ -32,31 +32,94 @@
             <div class="hero__content">
                 <h2>Свяжитесь с нами</h2>
                 <p>Готовы обсудить ваш проект</p>
+                <button id="openDialog" class="btn btn--primary" type="button">Написать нам</button>
             </div>
         </section>
 
         <section class="section">
-            <div class="form-container">
-                <h2 class="section__title text-center">Напишите нам</h2>
-                <form class="form">
-                    <div class="form__group">
-                        <input type="text" class="form__input" placeholder="Ваше имя" required>
+            <div class="contact-info">
+                <h2 class="section__title">Наши контакты</h2>
+                <div class="contact-info__grid">
+                    <div class="contact-info__item">
+                        <div class="contact-info__icon">📧</div>
+                        <h3>Email</h3>
+                        <p>hello@neodesign.ru</p>
                     </div>
-                    <div class="form__group">
-                        <input type="email" class="form__input" placeholder="Email" required>
+                    <div class="contact-info__item">
+                        <div class="contact-info__icon">📱</div>
+                        <h3>Телефон</h3>
+                        <p>+7 (999) 123-45-67</p>
                     </div>
-                    <div class="form__group">
-                        <textarea class="form__textarea" placeholder="Сообщение" required></textarea>
+                    <div class="contact-info__item">
+                        <div class="contact-info__icon">📍</div>
+                        <h3>Адрес</h3>
+                        <p>Москва, ул. Примерная, д. 123</p>
                     </div>
-                    <button type="submit" class="form__button form__button--primary">Отправить</button>
-                </form>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <!-- Модальное окно с формой -->
+    <dialog id="contactDialog" class="modal" aria-labelledby="dialogTitle">
+        <div class="modal__content">
+            <h2 id="dialogTitle" class="modal__title">Обратная связь</h2>
+            <form id="contactForm" class="form" method="dialog" novalidate>
+                <div class="form__group">
+                    <label for="name" class="form__label">Имя *</label>
+                    <input id="name" name="name" type="text" class="form__input" 
+                           required minlength="2" autocomplete="given-name"
+                           placeholder="Введите ваше имя">
+                </div>
+                
+                <div class="form__group">
+                    <label for="email" class="form__label">E-mail *</label>
+                    <input id="email" name="email" type="email" class="form__input"
+                           required autocomplete="email"
+                           placeholder="example@mail.ru">
+                </div>
+                
+                <div class="form__group">
+                    <label for="phone" class="form__label">Телефон</label>
+                    <input id="phone" name="phone" type="tel" class="form__input"
+                           inputmode="tel" autocomplete="tel"
+                           aria-describedby="phoneHelp" 
+                           placeholder="+7 (___) ___-__-__"
+                           pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+                    <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
+                </div>
+                
+                <div class="form__group">
+                    <label for="topic" class="form__label">Тема *</label>
+                    <select id="topic" name="topic" class="form__select" required>
+                        <option value="">Выберите тему</option>
+                        <option value="consultation">Консультация</option>
+                        <option value="project">Заказ проекта</option>
+                        <option value="support">Техподдержка</option>
+                    </select>
+                </div>
+                
+                <div class="form__group">
+                    <label for="message" class="form__label">Сообщение *</label>
+                    <textarea id="message" name="message" class="form__textarea"
+                              rows="4" required placeholder="Опишите ваш проект или вопрос"></textarea>
+                </div>
+                
+                <div class="form__actions">
+                    <button type="button" id="closeDialog" class="btn btn--secondary">Закрыть</button>
+                    <button type="submit" class="btn btn--primary">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <footer class="footer">
         <div class="container">
             <div class="footer__content">
+                <div class="footer__section">
+                    <h3>NeoDesign</h3>
+                    <p>Инновационный дизайн для digital-эпохи</p>
+                </div>
                 <div class="footer__section">
                     <h3>Контакты</h3>
                     <p>Email: hello@neodesign.ru</p>
@@ -64,7 +127,7 @@
                 </div>
             </div>
             <div class="footer__bottom">
-                <p>&copy; 2023 NeoDesign</p>
+                <p>&copy; 2023 NeoDesign. Все права защищены.</p>
             </div>
         </div>
     </footer>
