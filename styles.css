@@ -133,3 +133,188 @@ dialog::backdrop {
         flex-direction: column;
     }
 }
+
+
+/* Стили для модального окна NeoDesign */
+.neo-modal {
+    border: none;
+    border-radius: var(--radius-xl);
+    width: min(95vw, 600px);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    box-shadow: var(--shadow-xl);
+    padding: 0;
+    position: relative;
+}
+
+.neo-modal::backdrop {
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+}
+
+.neo-modal__content {
+    padding: var(--space-5);
+    position: relative;
+}
+
+.neo-modal__close {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-muted);
+    z-index: 10;
+}
+
+.neo-modal__close:hover {
+    background: rgba(0,0,0,0.05);
+    color: var(--color-fg);
+    transform: rotate(90deg);
+}
+
+.neo-modal__header {
+    text-align: center;
+    margin-bottom: var(--space-5);
+    padding-right: var(--space-4);
+}
+
+.neo-modal__title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    line-height: 1.2;
+}
+
+.neo-modal__subtitle {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+}
+
+/* Сетка для полей формы */
+.form__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+}
+
+/* Анимация появления модалки */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.neo-modal[open] {
+    animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Улучшенные стили для формы в модалке */
+.neo-modal .form__group {
+    margin-bottom: var(--space-4);
+}
+
+.neo-modal .form__label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-weight: 600;
+    color: var(--color-fg);
+}
+
+.neo-modal .form__input,
+.neo-modal .form__select,
+.neo-modal .form__textarea {
+    width: 100%;
+    padding: var(--space-3);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .neo-modal .form__input,
+[data-theme="dark"] .neo-modal .form__select,
+[data-theme="dark"] .neo-modal .form__textarea {
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.neo-modal .form__input:focus,
+.neo-modal .form__select:focus,
+.neo-modal .form__textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.1);
+}
+
+.neo-modal .form__textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.neo-modal .form__actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.neo-modal .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+/* Адаптивность для модалки */
+@media (max-width: 768px) {
+    .neo-modal {
+        width: 95vw;
+        margin: var(--space-3);
+    }
+    
+    .neo-modal__content {
+        padding: var(--space-4);
+    }
+    
+    .form__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .neo-modal__title {
+        font-size: 2rem;
+    }
+    
+    .neo-modal .form__actions {
+        flex-direction: column;
+    }
+}
+
+/* Состояния ошибок */
+.neo-modal [aria-invalid="true"] {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.neo-modal .form__help {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-top: var(--space-1);
+}
