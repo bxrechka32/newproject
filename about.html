@@ -1,58 +1,67 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О нас - Название вашего сайта</title>
-    <meta name="description" content="Краткое описание страницы О нас">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <title>О нас - NeoDesign</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
     <header class="site-header">
-        <a class="site-header__brand" href="/">Логотип</a>
-        <nav class="site-nav" aria-label="Основная навигация">
-            <ul class="site-nav__list">
-                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="about.html" aria-current="page">О нас</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-            </ul>
-        </nav>
-        <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
-            🌙
-        </button>
+        <div class="container">
+            <div class="site-header__inner">
+                <a href="index.html" class="site-header__brand">NeoDesign</a>
+                <nav class="site-nav">
+                    <ul class="site-nav__list">
+                        <li><a href="index.html" class="site-nav__link">Главная</a></li>
+                        <li><a href="about.html" class="site-nav__link" aria-current="page">О нас</a></li>
+                        <li><a href="contacts.html" class="site-nav__link">Контакты</a></li>
+                    </ul>
+                    <button class="theme-toggle">🌓</button>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <main class="container">
-        <nav class="breadcrumbs" aria-label="Хлебные крошки">
-            <a href="index.html">Главная</a> → <span>О нас</span>
-        </nav>
-
-        <h1 class="section__title">О нашей компании</h1>
-        
-        <div class="hero">
-            <h2>Наша история</h2>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a> / <span>О нас</span>
         </div>
 
-        <section class="section">
-            <h2>Наша история</h2>
-            <p>Текст о том, как все начиналось...</p>
-        </section>
-        
-        <section class="section">
-            <h2>Наша команда</h2>
-            <p>Текст о команде...</p>
+        <section class="hero">
+            <div class="hero__content">
+                <h2>О нашей компании</h2>
+                <p>Создаем инновационные digital-решения с 2020 года</p>
+            </div>
         </section>
 
-   
+        <section class="section">
+            <div class="section__content">
+                <div class="section__text">
+                    <h2 class="section__title">Наша история</h2>
+                    <p>Команда профессионалов с passion к созданию exceptional пользовательских experiences.</p>
+                </div>
+                <div class="section__media">
+                    <img src="team.jpg" alt="Наша команда" class="responsive-image">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
-        <p>Телефон: +7 (123) 456-78-90</p>
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>NeoDesign</h3>
+                    <p>Инновационный дизайн для digital-эпохи</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2023 NeoDesign. Все права защищены.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="main.js" defer></script>
+    <script src="main.js"></script>
 </body>
 </html>
