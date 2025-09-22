@@ -89,3 +89,88 @@ form?.addEventListener('submit', (e) => {
 dlg?.addEventListener('close', () => {
     lastActive?.focus();
 });
+
+
+
+
+// Модальное окно контактов
+const contactDialog = document.getElementById('contactDialog');
+const openDialogBtn = document.getElementById('openDialog');
+const closeDialogBtn = document.getElementById('closeDialog');
+const contactForm = document.getElementById('contactForm');
+
+let lastActiveElement = null;
+
+// Открытие модалки
+openDialogBtn?.addEventListener('click', () => {
+    lastActiveElement = document.activeElement;
+    contactDialog.showModal();
+    contactDialog.querySelector('input')?.focus();
+});
+
+// Закрытие модалки
+closeDialogBtn?.addEventListener('click', () => {
+    contactDialog.close('cancel');
+});
+
+// Маска телефона
+const phoneInput = document.getElementById('phone');
+phoneInput?.addEventListener('input', (e) => {
+    const digits = e.target.value.replace(/\D/g, '').slice(0, 11);
+    const normalized = digits.replace(/^8/, '7');
+    
+    if (normalized.length === 0) return;
+    
+    let formatted = '+7';
+    if (normalized.length > 1) formatted += ` (${normalized.slice(1, 4)}`;
+    if (normalized.length >= 4) formatted += ')';
+    if (normalized.length >= 5) formatted += ` ${normalized.slice(4, 7)}`;
+    if (normalized.length >= 8) formatted += `-${normalized.slice(7, 9)}`;
+    if (normalized.length >= 10) formatted += `-${normalized.slice(9, 11)}`;
+    
+    e.target.value = formatted;
+});
+
+// Валидация формы
+contactForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Сброс предыдущих ошибок
+    Array.from(contactForm.elements).forEach(element => {
+        element.setCustomValidity?.('');
+        element.removeAttribute('aria-invalid');
+    });
+    
+    if (!contactForm.checkValidity()) {
+        // Кастомные сообщения об ошибках
+        const email = contactForm.elements.email;
+        if (email?.validity.typeMismatch) {
+            email.setCustomValidity('Пожалуйста, введите корректный email адрес');
+        }
+        
+        const phone = contactForm.elements.phone;
+        if (phone?.validity.patternMismatch) {
+            phone.setCustomValidity('Телефон должен быть в формате +7 (900) 000-00-00');
+        }
+        
+        // Подсветка невалидных полей
+        Array.from(contactForm.elements).forEach(element => {
+            if (element.willValidate && !element.checkValidity()) {
+                element.setAttribute('aria-invalid', 'true');
+            }
+        });
+        
+        contactForm.reportValidity();
+        return;
+    }
+    
+    // Успешная отправка
+    alert('Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.');
+    contactDialog.close('success');
+    contactForm.reset();
+});
+
+// Восстановление фокуса после закрытия модалки
+contactDialog?.addEventListener('close', () => {
+    lastActiveElement?.focus();
+});
