@@ -43,3 +43,93 @@ dialog::backdrop {
 [aria-invalid="true"] {
     border-color: var(--color-danger);
 }
+
+
+
+
+
+/* Стили для модального окна */
+.modal {
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-xl);
+    width: min(92vw, 520px);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    box-shadow: var(--shadow-xl);
+}
+
+.modal::backdrop {
+    background: rgba(0,0,0,.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal__content {
+    padding: var(--space-5);
+}
+
+.modal__title {
+    margin-bottom: var(--space-4);
+    text-align: center;
+}
+
+/* Контактная информация */
+.contact-info {
+    text-align: center;
+}
+
+.contact-info__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+}
+
+.contact-info__item {
+    background: var(--color-bg);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.contact-info__item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-info__icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-2);
+}
+
+/* Состояния формы */
+:where(input, select, textarea, button):focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+[aria-invalid="true"] {
+    border-color: var(--color-danger);
+}
+
+.form__help {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-top: var(--space-1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .modal__content {
+        padding: var(--space-4);
+    }
+    
+    .contact-info__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form__actions {
+        flex-direction: column;
+    }
+}
