@@ -947,3 +947,50 @@
                         <button type="reset" class="form__button form__button--secondary">Очистить форму</button>
                     </div>
                 </form>
+
+
+<!-- Кнопка открытия модалки -->
+<button id="openDialog" class="btn btn--primary" type="button">Обратная связь</button>
+
+<!-- Модалка с формой -->
+<dialog id="contactDialog" aria-labelledby="dialogTitle">
+    <h2 id="dialogTitle">Обратная связь</h2>
+    <form id="contactForm" method="dialog" novalidate>
+        <div class="form__group">
+            <label for="name" class="form__label">Имя</label>
+            <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name" class="form__input">
+        </div>
+        
+        <div class="form__group">
+            <label for="email" class="form__label">E-mail</label>
+            <input id="email" name="email" type="email" required autocomplete="email" class="form__input">
+        </div>
+        
+        <div class="form__group">
+            <label for="phone" class="form__label">Телефон</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" 
+                   aria-describedby="phoneHelp" placeholder="+7 (___) ___-__-__" required 
+                   pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" class="form__input">
+            <small id="phoneHelp" class="form__help">Формат: +7 (900) 000-00-00</small>
+        </div>
+        
+        <div class="form__group">
+            <label for="topic" class="form__label">Тема</label>
+            <select id="topic" name="topic" required class="form__select">
+                <option value="">Выберите тему</option>
+                <option>Вопрос</option>
+                <option>Заказ</option>
+            </select>
+        </div>
+        
+        <div class="form__group">
+            <label for="message" class="form__label">Сообщение</label>
+            <textarea id="message" name="message" rows="4" required class="form__textarea"></textarea>
+        </div>
+        
+        <div class="form__actions">
+            <button type="button" id="closeDialog" class="form__button form__button--secondary">Закрыть</button>
+            <button type="submit" class="form__button form__button--primary">Отправить</button>
+        </div>
+    </form>
+</dialog>
