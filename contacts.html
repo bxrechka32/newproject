@@ -25,60 +25,94 @@
 
     <main class="container">
         <div class="breadcrumbs">
-            <a href="index.html">Главная</a> / <span>Контакты</span>
+            <a href="index.html">Главная</a> 
+            <span class="breadcrumbs__separator">/</span>
+            <span>Контакты</span>
         </div>
 
         <section class="hero">
             <div class="hero__content">
-                <h2>Свяжитесь с нами</h2>
-                <p>Готовы обсудить ваш проект</p>
-                <button id="openDialog" class="btn btn--primary" type="button">Написать нам</button>
+                <h2 class="floating">Свяжитесь с нами</h2>
+                <p>Готовы создать что-то extraordinary вместе</p>
+                <div class="hero__cta">
+                    <button id="openDialog" class="btn btn--primary" type="button">Начать диалог</button>
+                    <a href="#contact-info" class="btn btn--secondary">Наша информация</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-info" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Наши контакты</h2>
+                <p class="section__subtitle">Мы всегда на связи для ваших идей и проектов</p>
+            </div>
+            <div class="cards">
+                <div class="card fade-in">
+                    <div class="card__icon">📧</div>
+                    <h3 class="card__title">Email</h3>
+                    <p class="card__text">Пишите нам в любое время - отвечаем в течение 24 часов</p>
+                    <a href="mailto:hello@neodesign.ru" class="card__link">hello@neodesign.ru</a>
+                </div>
+                <div class="card fade-in">
+                    <div class="card__icon">📱</div>
+                    <h3 class="card__title">Телефон</h3>
+                    <p class="card__text">Обсудим ваш проект по телефону в рабочее время</p>
+                    <a href="tel:+79991234567" class="card__link">+7 (999) 123-45-67</a>
+                </div>
+                <div class="card fade-in">
+                    <div class="card__icon">📍</div>
+                    <h3 class="card__title">Адрес</h3>
+                    <p class="card__text">Приглашаем на встречу в нашем офисе в Москве</p>
+                    <span class="card__text">ул. Примерная, д. 123</span>
+                </div>
             </div>
         </section>
 
         <section class="section">
-            <div class="contact-info">
-                <h2 class="section__title">Наши контакты</h2>
-                <div class="contact-info__grid">
-                    <div class="contact-info__item">
-                        <div class="contact-info__icon">📧</div>
-                        <h3>Email</h3>
-                        <p>hello@neodesign.ru</p>
-                    </div>
-                    <div class="contact-info__item">
-                        <div class="contact-info__icon">📱</div>
-                        <h3>Телефон</h3>
-                        <p>+7 (999) 123-45-67</p>
-                    </div>
-                    <div class="contact-info__item">
-                        <div class="contact-info__icon">📍</div>
-                        <h3>Адрес</h3>
-                        <p>Москва, ул. Примерная, д. 123</p>
-                    </div>
+            <div class="section__content">
+                <div class="section__text">
+                    <h2 class="section__title">Почему выбирают нас</h2>
+                    <p>Наша команда сочетает креативный подход с технической экспертизой для создания digital-продуктов, которые выделяются на рынке.</p>
+                    <p>Каждый проект мы рассматриваем как уникальную возможность создать что-то exceptional.</p>
+                    <button id="openDialog2" class="btn btn--primary mt-4">Обсудить проект</button>
+                </div>
+                <div class="section__media">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Команда NeoDesign за работой" class="responsive-image">
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Модальное окно с формой -->
-    <dialog id="contactDialog" class="modal" aria-labelledby="dialogTitle">
-        <div class="modal__content">
-            <h2 id="dialogTitle" class="modal__title">Обратная связь</h2>
+    <!-- Модальное окно в стиле NeoDesign -->
+    <dialog id="contactDialog" class="neo-modal" aria-labelledby="dialogTitle">
+        <div class="neo-modal__content">
+            <button class="neo-modal__close" id="closeDialog" aria-label="Закрыть окно">×</button>
+            
+            <div class="neo-modal__header">
+                <h2 id="dialogTitle" class="neo-modal__title">
+                    <span class="accent-text">Обсудим</span> ваш проект
+                </h2>
+                <p class="neo-modal__subtitle">Заполните форму и мы свяжемся с вами в течение 2 часов</p>
+            </div>
+
             <form id="contactForm" class="form" method="dialog" novalidate>
-                <div class="form__group">
-                    <label for="name" class="form__label">Имя *</label>
-                    <input id="name" name="name" type="text" class="form__input" 
-                           required minlength="2" autocomplete="given-name"
-                           placeholder="Введите ваше имя">
+                <div class="form__grid">
+                    <div class="form__group">
+                        <label for="name" class="form__label">Имя *</label>
+                        <input id="name" name="name" type="text" class="form__input" 
+                               required minlength="2" autocomplete="given-name"
+                               placeholder="Ваше полное имя">
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="email" class="form__label">E-mail *</label>
+                        <input id="email" name="email" type="email" class="form__input"
+                               required autocomplete="email"
+                               placeholder="example@mail.ru">
+                    </div>
                 </div>
-                
-                <div class="form__group">
-                    <label for="email" class="form__label">E-mail *</label>
-                    <input id="email" name="email" type="email" class="form__input"
-                           required autocomplete="email"
-                           placeholder="example@mail.ru">
-                </div>
-                
+
                 <div class="form__group">
                     <label for="phone" class="form__label">Телефон</label>
                     <input id="phone" name="phone" type="tel" class="form__input"
@@ -90,11 +124,12 @@
                 </div>
                 
                 <div class="form__group">
-                    <label for="topic" class="form__label">Тема *</label>
+                    <label for="topic" class="form__label">Тема обращения *</label>
                     <select id="topic" name="topic" class="form__select" required>
                         <option value="">Выберите тему</option>
                         <option value="consultation">Консультация</option>
                         <option value="project">Заказ проекта</option>
+                        <option value="partnership">Партнерство</option>
                         <option value="support">Техподдержка</option>
                     </select>
                 </div>
@@ -102,12 +137,16 @@
                 <div class="form__group">
                     <label for="message" class="form__label">Сообщение *</label>
                     <textarea id="message" name="message" class="form__textarea"
-                              rows="4" required placeholder="Опишите ваш проект или вопрос"></textarea>
+                              rows="5" required 
+                              placeholder="Опишите вашу идею или проект..."></textarea>
                 </div>
                 
                 <div class="form__actions">
-                    <button type="button" id="closeDialog" class="btn btn--secondary">Закрыть</button>
-                    <button type="submit" class="btn btn--primary">Отправить</button>
+                    <button type="button" id="cancelDialog" class="btn btn--secondary">Отмена</button>
+                    <button type="submit" class="btn btn--primary">
+                        <span>Отправить сообщение</span>
+                        <span>→</span>
+                    </button>
                 </div>
             </form>
         </div>
@@ -122,8 +161,18 @@
                 </div>
                 <div class="footer__section">
                     <h3>Контакты</h3>
-                    <p>Email: hello@neodesign.ru</p>
-                    <p>Телефон: +7 (999) 123-45-67</p>
+                    <ul class="footer__links">
+                        <li><a href="mailto:hello@neodesign.ru">📧 hello@neodesign.ru</a></li>
+                        <li><a href="tel:+79991234567">📱 +7 (999) 123-45-67</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3>Мы в соцсетях</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">Telegram</a></li>
+                        <li><a href="#">VK</a></li>
+                        <li><a href="#">Behance</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer__bottom">
