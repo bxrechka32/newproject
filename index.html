@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Название вашего сайта</title>
+    <meta name="description" content="Краткое описание главной страницы вашего сайта">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="site-header__brand" href="/">Логотип</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html" aria-current="page">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+        <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
+            🌙
+        </button>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="index.html">Главная</a> → <span>Текущая страница</span>
+        </nav>
+
+        <h1 class="section__title">Добро пожаловать на наш сайт!</h1>
+
+        <div class="hero">
+            <h2>Мы создаем
+                <span class="subtitle_bold">
+                    amazing
+                </span>
+                 
+                  вещи</h2>
+        </div>
+
+        <img class="responsive-image" 
+             src="img-640.jpg" 
+             srcset="img-640.jpg 640w, img-960.jpg 960w" 
+             sizes="(max-width: 700px) 92vw, 640px" 
+             alt="Описание изображения" 
+             width="640" 
+             height="360" 
+             loading="lazy">
+
+        <section id="services" class="section">
+            <h2>Наши услуги</h2>
+            <p>Описание предоставляемых услуг...</p>
+            <a href="#contacts">Связаться с нами</a>
+        </section>
+
+        <section id="portfolio" class="section">
+            <h2>Портфолио</h2>
+            <p>Примеры наших работ...</p>
+        </section>
+
+        <div class="media">
+          
+      <iframe
+        width="720"
+        height="405"
+        src="https://rutube.ru/play/embed/38baa5503e18f7c0cd4318fe0084df1f"
+        style="border: none;"
+        allow="clipboard-write; autoplay"
+        allowFullScreen
+      ></iframe>
+    
+        </div>
+
+        <section id="contacts" class="section">
+            <h2>Контактная информация</h2>
+            <p>Наши контакты...</p>
+            <a href="contacts.html">Подробнее</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

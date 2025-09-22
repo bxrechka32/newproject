@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Название вашего сайта</title>
+    <meta name="description" content="Контактная информация">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="site-header__brand" href="/">Логотип</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html" aria-current="page">Контакты</a></li>
+            </ul>
+        </nav>
+        <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
+            🌙
+        </button>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="index.html">Главная</a> → <span>Контакты</span>
+        </nav>
+
+        <h1 class="section__title">Связаться с нами</h1>
+
+        <div class="hero">
+            <h2>Мы всегда на связи</h2>
+        </div>
+
+        <button id="openDialog" class="form__button form__button--primary" type="button">Написать нам</button>
+
+        <dialog id="contactDialog" aria-labelledby="dialogTitle">
+            <h2 id="dialogTitle">Обратная связь</h2>
+
+            <form id="contactForm" class="form" method="dialog" novalidate>
+                <label class="form__label" for="name">Имя</label>
+                <input class="form__input" id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
+
+                <label class="form__label" for="email">E-mail</label>
+                <input class="form__input" id="email" name="email" type="email" required autocomplete="email">
+
+                <label class="form__label" for="phone">Телефон</label>
+                <input class="form__input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+                    aria-describedby="phoneHelp" placeholder="+7 (900) 000-00-00"
+                    required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+                <small class="form__help" id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+
+                <label class="form__label" for="date">Дата</label>
+                <input class="form__input" id="date" name="date" type="date">
+
+                <label class="form__label" for="topic">Тема</label>
+                <select class="form__select" id="topic" name="topic" required>
+                    <option value="">Выберите тему</option>
+                    <option>Вопрос</option>
+                    <option>Заказ</option>
+                </select>
+
+                <label class="form__label" for="message">Сообщение</label>
+                <textarea class="form__textarea" id="message" name="message" rows="4" required></textarea>
+
+                <div class="form__actions">
+                    <button type="button" id="closeDialog" class="form__button form__button--secondary">Закрыть</button>
+                    <button type="submit" class="form__button form__button--primary">Отправить</button>
+                </div>
+            </form>
+        </dialog>
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

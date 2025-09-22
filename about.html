@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Название вашего сайта</title>
+    <meta name="description" content="Краткое описание страницы О нас">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="site-header__brand" href="/">Логотип</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="about.html" aria-current="page">О нас</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+        <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">
+            🌙
+        </button>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="index.html">Главная</a> → <span>О нас</span>
+        </nav>
+
+        <h1 class="section__title">О нашей компании</h1>
+        
+        <div class="hero">
+            <h2>Наша история</h2>
+        </div>
+
+        <section class="section">
+            <h2>Наша история</h2>
+            <p>Текст о том, как все начиналось...</p>
+        </section>
+        
+        <section class="section">
+            <h2>Наша команда</h2>
+            <p>Текст о команде...</p>
+        </section>
+
+   
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>
