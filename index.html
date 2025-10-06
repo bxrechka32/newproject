@@ -505,5 +505,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="scripts.js"></script>
+    <script>
+    // Аварийное скрытие лоадера
+    setTimeout(() => {
+        document.getElementById('loadingScreen')?.remove();
+    }, 3000);
+    </script>
 </body>
 </html>
