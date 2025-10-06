@@ -497,5 +497,39 @@
     </div>
 
     <script src="script.js"></script>
+    <!-- Модальное окно -->
+<dialog id="contactModal" class="modal">
+    <div class="modal__content">
+        <button class="modal__close" data-modal-close aria-label="Закрыть">×</button>
+        <div class="modal__header">
+            <h2 class="modal__title">Обсудим ваш проект</h2>
+            <p class="modal__subtitle">Заполните форму и мы свяжемся с вами в течение 2 часов</p>
+        </div>
+        <form class="form" id="contactForm" data-validate>
+            <div class="form__grid">
+                <div class="form__group">
+                    <label for="name" class="form__label">Имя *</label>
+                    <input type="text" id="name" name="name" class="form__input" required minlength="2">
+                </div>
+                <div class="form__group">
+                    <label for="email" class="form__label">Email *</label>
+                    <input type="email" id="email" name="email" class="form__input" required>
+                </div>
+            </div>
+            <div class="form__group">
+                <label for="phone" class="form__label">Телефон</label>
+                <input type="tel" id="phone" name="phone" class="form__input" placeholder="+7 (___) ___-__-__">
+            </div>
+            <div class="form__group">
+                <label for="message" class="form__label">Сообщение *</label>
+                <textarea id="message" name="message" class="form__textarea" required rows="4"></textarea>
+            </div>
+            <div class="form__actions">
+                <button type="button" class="btn btn--secondary" data-modal-close>Отмена</button>
+                <button type="submit" class="btn btn--primary">Отправить</button>
+            </div>
+        </form>
+    </div>
+</dialog>
 </body>
 </html>
