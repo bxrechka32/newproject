@@ -3,174 +3,499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - NeoDesign</title>
+    <title>Александр Петров - Fullstack Разработчик</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="page">
+        <!-- Header -->
         <header class="header">
             <div class="container">
                 <div class="header__inner">
-                    <a href="index.html" class="header__brand">NeoDesign</a>
+                    <a href="index.html" class="header__brand">
+                        <i class="fas fa-code"></i> AlexDev
+                    </a>
+                    
                     <nav class="nav">
                         <ul class="nav__list">
                             <li class="nav__item nav__item--active">
                                 <a href="index.html" class="nav__link">Главная</a>
                             </li>
                             <li class="nav__item">
-                                <a href="about.html" class="nav__link">О нас</a>
+                                <a href="about.html" class="nav__link">Обо мне</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="portfolio.html" class="nav__link">Портфолио</a>
                             </li>
                             <li class="nav__item">
                                 <a href="contacts.html" class="nav__link">Контакты</a>
                             </li>
                         </ul>
-                        <button class="theme-toggle" aria-label="Переключить тему">🌓</button>
                     </nav>
+                    
+                    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                        <i class="fas fa-moon theme-toggle__icon"></i>
+                    </button>
                 </div>
             </div>
         </header>
 
+        <!-- Main Content -->
         <main class="main">
-            <div class="container">
-                <div class="breadcrumbs">
-                    <a href="index.html" class="breadcrumbs__link">Главная</a>
-                    <span class="breadcrumbs__separator">/</span>
-                    <span class="breadcrumbs__current">Текущая страница</span>
-                </div>
-
-                <section class="hero">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
                     <div class="hero__content">
-                        <h1 class="hero__title">Современный дизайн для цифровой эпохи</h1>
-                        <p class="hero__text">Создаем уникальные интерфейсы, которые впечатляют и решают бизнес-задачи</p>
+                        <h1 class="hero__title">
+                            Fullstack Разработчик с 8+ годами опыта
+                        </h1>
+                        <p class="hero__text">
+                            Создаю современные веб-приложения с использованием React, Node.js, TypeScript и облачных технологий. Превращаю сложные задачи в элегантные решения.
+                        </p>
                         <div class="hero__actions">
-                            <button class="btn btn--primary" data-modal-open="contactModal">Начать проект</button>
-                            <a href="about.html" class="btn btn--secondary">Узнать больше</a>
+                            <a href="#portfolio" class="btn btn--primary">
+                                <i class="fas fa-rocket"></i>
+                                Смотреть работы
+                            </a>
+                            <a href="contacts.html" class="btn btn--outline">
+                                <i class="fas fa-paper-plane"></i>
+                                Начать проект
+                            </a>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section class="features">
+            <!-- Features Section -->
+            <section class="features">
+                <div class="container">
                     <div class="features__header">
-                        <h2 class="features__title">Наши преимущества</h2>
-                        <p class="features__subtitle">Мы предлагаем комплексный подход к созданию digital-продуктов</p>
+                        <h2 class="features__title">Мой стек технологий</h2>
+                        <p class="features__subtitle">
+                            Использую современные инструменты и методологии для создания масштабируемых и производительных приложений
+                        </p>
                     </div>
+                    
                     <div class="features__grid">
-                        <article class="feature-card">
-                            <div class="feature-card__icon">💡</div>
-                            <h3 class="feature-card__title">Инновации</h3>
-                            <p class="feature-card__text">Используем передовые технологии для создания продуктов будущего.</p>
-                            <a href="#" class="feature-card__link">Подробнее</a>
-                        </article>
-                        <article class="feature-card">
-                            <div class="feature-card__icon">🎨</div>
-                            <h3 class="feature-card__title">Дизайн</h3>
-                            <p class="feature-card__text">Создаем эстетичные и функциональные интерфейсы.</p>
-                            <a href="#" class="feature-card__link">Подробнее</a>
-                        </article>
-                        <article class="feature-card">
-                            <div class="feature-card__icon">⚡</div>
-                            <h3 class="feature-card__title">Скорость</h3>
-                            <p class="feature-card__text">Оптимизируем процессы без потери качества.</p>
-                            <a href="#" class="feature-card__link">Подробнее</a>
-                        </article>
+                        <div class="feature-card">
+                            <i class="fas fa-layer-group feature-card__icon" style="color: #61dafb;"></i>
+                            <h3 class="feature-card__title">Frontend</h3>
+                            <p class="feature-card__text">
+                                React, Vue.js, TypeScript, Next.js, Redux, Webpack, Vite, Tailwind CSS
+                            </p>
+                            <a href="#frontend" class="feature-card__link">
+                                Узнать больше
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <i class="fas fa-server feature-card__icon" style="color: #68a063;"></i>
+                            <h3 class="feature-card__title">Backend</h3>
+                            <p class="feature-card__text">
+                                Node.js, Express, NestJS, Python, Django, PostgreSQL, MongoDB, Redis
+                            </p>
+                            <a href="#backend" class="feature-card__link">
+                                Узнать больше
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <i class="fas fa-cloud feature-card__icon" style="color: #ff9900;"></i>
+                            <h3 class="feature-card__title">Cloud & DevOps</h3>
+                            <p class="feature-card__text">
+                                AWS, Docker, Kubernetes, CI/CD, GitHub Actions, Terraform, Nginx
+                            </p>
+                            <a href="#devops" class="feature-card__link">
+                                Узнать больше
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section class="projects">
-                    <div class="projects__header">
-                        <h2 class="projects__title">Наши проекты</h2>
-                        <p class="projects__subtitle">Реализованные работы для наших клиентов</p>
+            <!-- Skills Section -->
+            <section class="skills" id="skills">
+                <div class="container">
+                    <div class="skills__header">
+                        <h2 class="skills__title">Мои навыки</h2>
                     </div>
+                    
+                    <div class="skills__grid">
+                        <!-- Frontend Skills -->
+                        <div class="skill-category">
+                            <h3 class="skill-category__title">
+                                <i class="fas fa-code skill-category__icon"></i>
+                                Frontend Development
+                            </h3>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">React & TypeScript</span>
+                                <span class="progress__percentage">95%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="95"></div>
+                            </div>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">Vue.js & Composition API</span>
+                                <span class="progress__percentage">88%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="88"></div>
+                            </div>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">Next.js / Nuxt.js</span>
+                                <span class="progress__percentage">92%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="92"></div>
+                            </div>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">CSS/SCSS & Tailwind</span>
+                                <span class="progress__percentage">90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="90"></div>
+                            </div>
+                        </div>
+
+                        <!-- Backend Skills -->
+                        <div class="skill-category">
+                            <h3 class="skill-category__title">
+                                <i class="fas fa-server skill-category__icon"></i>
+                                Backend Development
+                            </h3>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">Node.js & Express</span>
+                                <span class="progress__percentage">94%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="94"></div>
+                            </div>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">Python & Django</span>
+                                <span class="progress__percentage">85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="85"></div>
+                            </div>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">PostgreSQL & MongoDB</span>
+                                <span class="progress__percentage">89%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="89"></div>
+                            </div>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">REST & GraphQL APIs</span>
+                                <span class="progress__percentage">91%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="91"></div>
+                            </div>
+                        </div>
+
+                        <!-- DevOps Skills -->
+                        <div class="skill-category">
+                            <h3 class="skill-category__title">
+                                <i class="fas fa-cloud skill-category__icon"></i>
+                                DevOps & Cloud
+                            </h3>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">Docker & Kubernetes</span>
+                                <span class="progress__percentage">87%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="87"></div>
+                            </div>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">AWS Services</span>
+                                <span class="progress__percentage">83%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="83"></div>
+                            </div>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">CI/CD & GitHub Actions</span>
+                                <span class="progress__percentage">86%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="86"></div>
+                            </div>
+                            
+                            <div class="progress__label">
+                                <span class="progress__name">Linux & Nginx</span>
+                                <span class="progress__percentage">88%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress__bar" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section class="portfolio" id="portfolio">
+                <div class="container">
+                    <div class="portfolio__header">
+                        <h2 class="portfolio__title">Мои проекты</h2>
+                        <p class="portfolio__subtitle">
+                            Реализованные проекты для клиентов из разных отраслей - от стартапов до корпораций
+                        </p>
+                    </div>
+                    
                     <div class="projects__grid">
-                        <article class="project-card">
+                        <!-- Project 1 -->
+                        <div class="project-card project-card--featured">
                             <div class="project-card__image">
-                                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Проект 1" class="project-card__img">
-                            </div>
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Корпоративный сайт</h3>
-                                <p class="project-card__text">Современный дизайн для технологической компании</p>
-                                <div class="project-card__tags">
-                                    <span class="tag tag--html">HTML</span>
-                                    <span class="tag tag--css">CSS</span>
-                                    <span class="tag tag--js">JS</span>
+                                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="E-commerce Platform" class="project-card__img">
+                                <div class="project-card__overlay">
+                                    <div class="project-card__actions">
+                                        <a href="#" class="btn btn--primary">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            Демо
+                                        </a>
+                                        <a href="#" class="btn btn--outline">
+                                            <i class="fab fa-github"></i>
+                                            Код
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </article>
-                        <article class="project-card">
-                            <div class="project-card__image">
-                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Проект 2" class="project-card__img">
-                            </div>
                             <div class="project-card__content">
-                                <h3 class="project-card__title">Интернет-магазин</h3>
-                                <p class="project-card__text">Электронная коммерция с удобным интерфейсом</p>
+                                <h3 class="project-card__title">Modern E-commerce Platform</h3>
+                                <p class="project-card__description">
+                                    Полнофункциональная платформа электронной коммерции с системой рекомендаций, платежной интеграцией и админ-панелью.
+                                </p>
                                 <div class="project-card__tags">
-                                    <span class="tag tag--react">React</span>
-                                    <span class="tag tag--node">Node.js</span>
+                                    <span class="tag">React</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">MongoDB</span>
+                                    <span class="tag">Stripe</span>
                                 </div>
                             </div>
-                        </article>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-card">
+                            <div class="project-card__image">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Analytics Dashboard" class="project-card__img">
+                                <div class="project-card__overlay">
+                                    <div class="project-card__actions">
+                                        <a href="#" class="btn btn--primary">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            Демо
+                                        </a>
+                                        <a href="#" class="btn btn--outline">
+                                            <i class="fab fa-github"></i>
+                                            Код
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Real-time Analytics Dashboard</h3>
+                                <p class="project-card__description">
+                                    Панель управления с реальными метриками, графиками и уведомлениями. Поддержка WebSocket для live-обновлений.
+                                </p>
+                                <div class="project-card__tags">
+                                    <span class="tag">Vue.js</span>
+                                    <span class="tag">Express</span>
+                                    <span class="tag">Socket.io</span>
+                                    <span class="tag">Chart.js</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-card">
+                            <div class="project-card__image">
+                                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Mobile App" class="project-card__img">
+                                <div class="project-card__overlay">
+                                    <div class="project-card__actions">
+                                        <a href="#" class="btn btn--primary">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            Демо
+                                        </a>
+                                        <a href="#" class="btn btn--outline">
+                                            <i class="fab fa-github"></i>
+                                            Код
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card__content">
+                                <h3 class="project-card__title">Task Management Mobile App</h3>
+                                <p class="project-card__description">
+                                    Кроссплатформенное мобильное приложение для управления задачами с оффлайн-режимом и синхронизацией.
+                                </p>
+                                <div class="project-card__tags">
+                                    <span class="tag">React Native</span>
+                                    <span class="tag">Firebase</span>
+                                    <span class="tag">Redux</span>
+                                    <span class="tag">PWA</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
+
+            <!-- Product Cards Demo -->
+            <section class="portfolio">
+                <div class="container">
+                    <div class="portfolio__header">
+                        <h2 class="portfolio__title">Компоненты карточек</h2>
+                        <p class="portfolio__subtitle">
+                            Демонстрация компонентов карточек с различными состояниями
+                        </p>
+                    </div>
+                    
+                    <div class="projects__grid">
+                        <!-- Product Card - Normal -->
+                        <div class="product-card" data-product-id="1">
+                            <div class="product-card__image">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Product 1" class="product-card__img">
+                            </div>
+                            <div class="product-card__content">
+                                <h3 class="product-card__title">Премиум курс React</h3>
+                                <p class="product-card__description">
+                                    Полный курс по React с TypeScript, хуками и лучшими практиками
+                                </p>
+                                <div class="product-card__price">
+                                    <span class="product-card__price-current">$299</span>
+                                </div>
+                                <div class="product-card__actions">
+                                    <button class="btn btn--primary">В корзину</button>
+                                    <button class="btn btn--outline">Подробнее</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card - Discount -->
+                        <div class="product-card product-card--discount" data-product-id="2">
+                            <div class="product-card__image">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Product 2" class="product-card__img">
+                            </div>
+                            <div class="product-card__content">
+                                <h3 class="product-card__title">Node.js Advanced</h3>
+                                <p class="product-card__description">
+                                    Продвинутый курс по Node.js с микросервисами и оптимизацией
+                                </p>
+                                <div class="product-card__price">
+                                    <span class="product-card__price-current">$199</span>
+                                    <span class="product-card__price-old">$299</span>
+                                </div>
+                                <div class="product-card__actions">
+                                    <button class="btn btn--primary">В корзину</button>
+                                    <button class="btn btn--outline">Подробнее</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card - Selected -->
+                        <div class="product-card product-card--selected" data-product-id="3">
+                            <div class="product-card__image">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Product 3" class="product-card__img">
+                                <div class="product-card__badge">Bestseller</div>
+                            </div>
+                            <div class="product-card__content">
+                                <h3 class="product-card__title">Fullstack Mastery</h3>
+                                <p class="product-card__description">
+                                    Комплексный курс fullstack разработки от frontend до deployment
+                                </p>
+                                <div class="product-card__price">
+                                    <span class="product-card__price-current">$499</span>
+                                </div>
+                                <div class="product-card__actions">
+                                    <button class="btn btn--primary">В корзину</button>
+                                    <button class="btn btn--outline">Подробнее</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
+        <!-- Footer -->
         <footer class="footer">
             <div class="container">
                 <div class="footer__content">
                     <div class="footer__section">
-                        <h3 class="footer__title">NeoDesign</h3>
-                        <p class="footer__text">Инновационный дизайн для digital-эпохи</p>
+                        <a href="index.html" class="footer__brand">
+                            <i class="fas fa-code"></i> AlexDev
+                        </a>
+                        <p class="footer__description">
+                            Fullstack разработчик с 8+ годами опыта. Создаю современные веб-приложения, которые решают реальные бизнес-задачи.
+                        </p>
+                        <div class="footer__social">
+                            <a href="#" class="footer__social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="footer__social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="footer__social-link">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="#" class="footer__social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
                     </div>
+                    
                     <div class="footer__section">
-                        <h3 class="footer__title">Контакты</h3>
+                        <h3 class="footer__title">Навигация</h3>
                         <ul class="footer__links">
-                            <li><a href="mailto:hello@neodesign.ru" class="footer__link">hello@neodesign.ru</a></li>
-                            <li><a href="tel:+79991234567" class="footer__link">+7 (999) 123-45-67</a></li>
+                            <li><a href="index.html" class="footer__link">Главная</a></li>
+                            <li><a href="about.html" class="footer__link">Обо мне</a></li>
+                            <li><a href="portfolio.html" class="footer__link">Портфолио</a></li>
+                            <li><a href="contacts.html" class="footer__link">Контакты</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__section">
+                        <h3 class="footer__title">Услуги</h3>
+                        <ul class="footer__links">
+                            <li><a href="#" class="footer__link">Web Development</a></li>
+                            <li><a href="#" class="footer__link">Mobile Apps</a></li>
+                            <li><a href="#" class="footer__link">API Development</a></li>
+                            <li><a href="#" class="footer__link">DevOps & Cloud</a></li>
                         </ul>
                     </div>
                 </div>
+                
                 <div class="footer__bottom">
-                    <p class="footer__copyright">&copy; 2023 NeoDesign. Все права защищены.</p>
+                    <p>&copy; 2024 Александр Петров. Все права защищены.</p>
                 </div>
             </div>
         </footer>
     </div>
 
-    <!-- Модальное окно -->
-    <dialog id="contactModal" class="modal">
-        <div class="modal__content">
-            <button class="modal__close" data-modal-close aria-label="Закрыть">×</button>
-            <div class="modal__header">
-                <h2 class="modal__title">Обсудим ваш проект</h2>
-                <p class="modal__subtitle">Заполните форму и мы свяжемся с вами в течение 2 часов</p>
-            </div>
-            <form class="form" id="contactForm" data-validate>
-                <div class="form__grid">
-                    <div class="form__group">
-                        <label for="name" class="form__label">Имя *</label>
-                        <input type="text" id="name" name="name" class="form__input" required minlength="2">
-                    </div>
-                    <div class="form__group">
-                        <label for="email" class="form__label">Email *</label>
-                        <input type="email" id="email" name="email" class="form__input" required>
-                    </div>
-                </div>
-                <div class="form__group">
-                    <label for="phone" class="form__label">Телефон</label>
-                    <input type="tel" id="phone" name="phone" class="form__input" placeholder="+7 (___) ___-__-__">
-                </div>
-                <div class="form__group">
-                    <label for="message" class="form__label">Сообщение *</label>
-                    <textarea id="message" name="message" class="form__textarea" required rows="4"></textarea>
-                </div>
-                <div class="form__actions">
-                    <button type="button" class="btn btn--secondary" data-modal-close>Отмена</button>
-                    <button type="submit" class="btn btn--primary">Отправить</button>
-                </div>
-            </form>
-        </div>
-    </dialog>
-
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
