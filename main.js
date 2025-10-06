@@ -459,20 +459,15 @@ class NeoDesignApp {
         }
     }
 
-    hideLoadingScreen() {
-    console.log('🔄 Hiding loading screen...');
-    
-    // Force hide after 3 seconds no matter what
+hideLoadingScreen() {
     setTimeout(() => {
         const loadingScreen = document.getElementById('loadingScreen');
         if (loadingScreen) {
-            console.log('✅ Found loading screen, hiding it');
-            loadingScreen.style.display = 'none';
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.visibility = 'hidden';
             document.body.classList.add('loaded');
-        } else {
-            console.log('❌ Loading screen element not found');
         }
-    }, 3000);
+    }, 2000); // Уменьши время загрузки
 }
 
 // === INITIALIZATION ===
