@@ -7,60 +7,111 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <div class="site-header__inner">
-                <a href="index.html" class="site-header__brand">NeoDesign</a>
-                <nav class="site-nav">
-                    <ul class="site-nav__list">
-                        <li><a href="index.html" class="site-nav__link">Главная</a></li>
-                        <li><a href="about.html" class="site-nav__link" aria-current="page">О нас</a></li>
-                        <li><a href="contacts.html" class="site-nav__link">Контакты</a></li>
-                    </ul>
-                    <button class="theme-toggle">🌓</button>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <main class="container">
-        <div class="breadcrumbs">
-            <a href="index.html">Главная</a> / <span>О нас</span>
-        </div>
-
-        <section class="hero">
-            <div class="hero__content">
-                <h2>О нашей компании</h2>
-                <p>Создаем инновационные digital-решения с 2020 года</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section__content">
-                <div class="section__text">
-                    <h2 class="section__title">Наша история</h2>
-                    <p>Команда профессионалов с passion к созданию exceptional пользовательских experiences.</p>
-                </div>
-                <div class="section__media">
-                    <img src="team.jpg" alt="Наша команда" class="responsive-image">
+    <div class="page">
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <a href="index.html" class="header__brand">NeoDesign</a>
+                    <nav class="nav">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="index.html" class="nav__link">Главная</a>
+                            </li>
+                            <li class="nav__item nav__item--active">
+                                <a href="about.html" class="nav__link">О нас</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="contacts.html" class="nav__link">Контакты</a>
+                            </li>
+                        </ul>
+                        <button class="theme-toggle" aria-label="Переключить тему">🌓</button>
+                    </nav>
                 </div>
             </div>
-        </section>
-    </main>
+        </header>
 
-    <footer>
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3>NeoDesign</h3>
-                    <p>Инновационный дизайн для digital-эпохи</p>
+        <main class="main">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="index.html" class="breadcrumbs__link">Главная</a>
+                    <span class="breadcrumbs__separator">/</span>
+                    <span class="breadcrumbs__current">О нас</span>
+                </div>
+
+                <section class="hero hero--about">
+                    <div class="hero__content">
+                        <h1 class="hero__title">О нашей компании</h1>
+                        <p class="hero__text">Создаем инновационные digital-решения с 2020 года</p>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <div class="about-section__content">
+                        <div class="about-section__text">
+                            <h2 class="about-section__title">Наша история</h2>
+                            <p class="about-section__description">Команда профессионалов с passion к созданию exceptional пользовательских experiences. Мы объединяем креативность и техническую экспертизу для достижения выдающихся результатов.</p>
+                            <p class="about-section__description">Каждый проект — это тщательно продуманная стратегия, ориентированная на цели бизнеса и потребности пользователей.</p>
+                            <div class="about-section__stats">
+                                <div class="stat">
+                                    <div class="stat__number">50+</div>
+                                    <div class="stat__label">Завершенных проектов</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat__number">3+</div>
+                                    <div class="stat__label">Года опыта</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat__number">95%</div>
+                                    <div class="stat__label">Довольных клиентов</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-section__media">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Наша команда" class="about-section__image">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="values">
+                    <div class="values__header">
+                        <h2 class="values__title">Наши ценности</h2>
+                        <p class="values__subtitle">Принципы, которые guide нашу работу</p>
+                    </div>
+                    <div class="values__grid">
+                        <article class="value-card">
+                            <div class="value-card__icon">🎯</div>
+                            <h3 class="value-card__title">Инновации</h3>
+                            <p class="value-card__text">Постоянно исследуем и внедряем новые технологии</p>
+                        </article>
+                        <article class="value-card">
+                            <div class="value-card__icon">🤝</div>
+                            <h3 class="value-card__title">Партнерство</h3>
+                            <p class="value-card__text">Строим долгосрочные отношения с клиентами</p>
+                        </article>
+                        <article class="value-card">
+                            <div class="value-card__icon">⚡</div>
+                            <h3 class="value-card__title">Эффективность</h3>
+                            <p class="value-card__text">Оптимизируем процессы для быстрого результата</p>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__section">
+                        <h3 class="footer__title">NeoDesign</h3>
+                        <p class="footer__text">Инновационный дизайн для digital-эпохи</p>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <p class="footer__copyright">&copy; 2023 NeoDesign. Все права защищены.</p>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p>&copy; 2023 NeoDesign. Все права защищены.</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script src="main.js"></script>
 </body>
