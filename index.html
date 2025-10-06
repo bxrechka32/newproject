@@ -3,174 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - NeoDesign</title>
+    <title>NeoDesign - Инновационный Digital-дизайн</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 3D Background Elements -->
+    <div class="three-d-bg">
+        <div class="particles-container" id="particles"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1" data-depth="0.2"></div>
+            <div class="shape shape-2" data-depth="0.4"></div>
+            <div class="shape shape-3" data-depth="0.6"></div>
+            <div class="shape shape-4" data-depth="0.8"></div>
+        </div>
+    </div>
+
+    <!-- Animated Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader__cube">
+                <div class="loader__face loader__face--front"></div>
+                <div class="loader__face loader__face--back"></div>
+                <div class="loader__face loader__face--right"></div>
+                <div class="loader__face loader__face--left"></div>
+                <div class="loader__face loader__face--top"></div>
+                <div class="loader__face loader__face--bottom"></div>
+            </div>
+            <div class="loader__text">NeoDesign</div>
+        </div>
+    </div>
+
     <div class="page">
-        <header class="header">
+        <!-- Enhanced Header -->
+        <header class="header header--enhanced">
             <div class="container">
                 <div class="header__inner">
-                    <a href="index.html" class="header__brand">NeoDesign</a>
-                    <nav class="nav">
+                    <a href="index.html" class="header__brand header__brand--glitch" data-text="NeoDesign">NeoDesign</a>
+                    
+                    <nav class="nav nav--advanced">
                         <ul class="nav__list">
-                            <li class="nav__item nav__item--active">
-                                <a href="index.html" class="nav__link">Главная</a>
+                            <li class="nav__item nav__item--magnetic">
+                                <a href="index.html" class="nav__link nav__link--holographic">
+                                    <span class="nav__icon">🏠</span>
+                                    Главная
+                                </a>
                             </li>
-                            <li class="nav__item">
-                                <a href="about.html" class="nav__link">О нас</a>
+                            <li class="nav__item nav__item--magnetic">
+                                <a href="about.html" class="nav__link nav__link--holographic">
+                                    <span class="nav__icon">👥</span>
+                                    О нас
+                                </a>
                             </li>
-                            <li class="nav__item">
-                                <a href="contacts.html" class="nav__link">Контакты</a>
+                            <li class="nav__item nav__item--magnetic">
+                                <a href="contacts.html" class="nav__link nav__link--holographic">
+                                    <span class="nav__icon">📞</span>
+                                    Контакты
+                                </a>
                             </li>
                         </ul>
-                        <button class="theme-toggle" aria-label="Переключить тему">🌓</button>
                     </nav>
+
+                    <div class="header__controls">
+                        <button class="theme-toggle theme-toggle--advanced" aria-label="Переключить тему">
+                            <div class="theme-toggle__sun-moon"></div>
+                            <div class="theme-toggle__stars"></div>
+                        </button>
+                        
+                        <button class="sound-toggle" id="soundToggle" aria-label="Звуковые эффекты">
+                            <div class="sound-toggle__icon">🔊</div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
 
         <main class="main">
-            <div class="container">
-                <div class="breadcrumbs">
-                    <a href="index.html" class="breadcrumbs__link">Главная</a>
-                    <span class="breadcrumbs__separator">/</span>
-                    <span class="breadcrumbs__current">Текущая страница</span>
-                </div>
+            <!-- Enhanced Hero Section -->
+            <section class="hero hero--interactive">
+                <canvas class="hero__canvas" id="heroCanvas"></canvas>
+                
+                <div class="hero__content">
+                    <div class="hero__badge hero__badge--animated">
+                        🚀 Инновационный Digital-дизайн
+                    </div>
+                    
+                    <h1 class="hero__title hero__title--gradient">
+                        <span class="hero__title-line">Создаем</span>
+                        <span class="hero__title-line hero__title-line--highlight" data-text="будущее">будущее</span>
+                        <span class="hero__title-line">веб-разработки</span>
+                    </h1>
+                    
+                    <p class="hero__text hero__text--typing" id="typingText">
+                        Превращаем сложные идеи в элегантные digital-решения
+                    </p>
 
-                <section class="hero">
-                    <div class="hero__content">
-                        <h1 class="hero__title">Современный дизайн для цифровой эпохи</h1>
-                        <p class="hero__text">Создаем уникальные интерфейсы, которые впечатляют и решают бизнес-задачи</p>
-                        <div class="hero__actions">
-                            <button class="btn btn--primary" data-modal-open="contactModal">Начать проект</button>
-                            <a href="about.html" class="btn btn--secondary">Узнать больше</a>
+                    <div class="hero__actions">
+                        <button class="btn btn--neon btn--magnetic" data-modal-open="demoModal">
+                            <span class="btn__sparkles">✨</span>
+                            Смотреть демо
+                            <span class="btn__hover-effect"></span>
+                        </button>
+                        
+                        <button class="btn btn--holographic btn--magnetic" data-scroll-to="projects">
+                            <span class="btn__arrow">→</span>
+                            Наши работы
+                            <span class="btn__hover-effect"></span>
+                        </button>
+                    </div>
+
+                    <div class="hero__stats">
+                        <div class="stat-card stat-card--floating">
+                            <div class="stat-card__number" data-count="150">0</div>
+                            <div class="stat-card__label">Проектов</div>
+                        </div>
+                        <div class="stat-card stat-card--floating">
+                            <div class="stat-card__number" data-count="98">0</div>
+                            <div class="stat-card__label">Успешных кейсов</div>
+                        </div>
+                        <div class="stat-card stat-card--floating">
+                            <div class="stat-card__number" data-count="3">0</div>
+                            <div class="stat-card__label">Года опыта</div>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <section class="features">
+                <div class="hero__scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                </div>
+            </section>
+
+            <!-- Enhanced Features Section -->
+            <section class="features features--interactive" id="features">
+                <div class="container">
                     <div class="features__header">
-                        <h2 class="features__title">Наши преимущества</h2>
-                        <p class="features__subtitle">Мы предлагаем комплексный подход к созданию digital-продуктов</p>
+                        <h2 class="features__title features__title--glitch" data-text="Наши суперсилы">
+                            Наши суперсилы
+                        </h2>
+                        <p class="features__subtitle">
+                            Технологии, которые выводят ваш бизнес на новый уровень
+                        </p>
                     </div>
-                    <div class="features__grid">
-                        <article class="feature-card">
-                            <div class="feature-card__icon">💡</div>
-                            <h3 class="feature-card__title">Инновации</h3>
-                            <p class="feature-card__text">Используем передовые технологии для создания продуктов будущего.</p>
-                            <a href="#" class="feature-card__link">Подробнее</a>
-                        </article>
-                        <article class="feature-card">
-                            <div class="feature-card__icon">🎨</div>
-                            <h3 class="feature-card__title">Дизайн</h3>
-                            <p class="feature-card__text">Создаем эстетичные и функциональные интерфейсы.</p>
-                            <a href="#" class="feature-card__link">Подробнее</a>
-                        </article>
-                        <article class="feature-card">
-                            <div class="feature-card__icon">⚡</div>
-                            <h3 class="feature-card__title">Скорость</h3>
-                            <p class="feature-card__text">Оптимизируем процессы без потери качества.</p>
-                            <a href="#" class="feature-card__link">Подробнее</a>
-                        </article>
-                    </div>
-                </section>
 
-                <section class="projects">
-                    <div class="projects__header">
-                        <h2 class="projects__title">Наши проекты</h2>
-                        <p class="projects__subtitle">Реализованные работы для наших клиентов</p>
-                    </div>
-                    <div class="projects__grid">
-                        <article class="project-card">
-                            <div class="project-card__image">
-                                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Проект 1" class="project-card__img">
-                            </div>
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Корпоративный сайт</h3>
-                                <p class="project-card__text">Современный дизайн для технологической компании</p>
-                                <div class="project-card__tags">
-                                    <span class="tag tag--html">HTML</span>
-                                    <span class="tag tag--css">CSS</span>
-                                    <span class="tag tag--js">JS</span>
+                    <div class="features__grid features__grid--3d">
+                        <!-- 3D Feature Card 1 -->
+                        <div class="feature-3d-card" data-tilt>
+                            <div class="feature-3d-card__inner">
+                                <div class="feature-3d-card__face feature-3d-card__face--front">
+                                    <div class="feature-3d-card__icon">🎮</div>
+                                    <h3 class="feature-3d-card__title">Интерактивный дизайн</h3>
+                                    <p class="feature-3d-card__text">
+                                        Создаем захватывающие пользовательские интерфейсы
+                                    </p>
+                                    <div class="feature-3d-card__hover-text">Наведите для 3D эффекта</div>
+                                </div>
+                                <div class="feature-3d-card__face feature-3d-card__face--back">
+                                    <h4>Технологии</h4>
+                                    <ul>
+                                        <li>Three.js</li>
+                                        <li>GSAP</li>
+                                        <li>WebGL</li>
+                                        <li>Canvas API</li>
+                                    </ul>
                                 </div>
                             </div>
-                        </article>
-                        <article class="project-card">
-                            <div class="project-card__image">
-                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Проект 2" class="project-card__img">
-                            </div>
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Интернет-магазин</h3>
-                                <p class="project-card__text">Электронная коммерция с удобным интерфейсом</p>
-                                <div class="project-card__tags">
-                                    <span class="tag tag--react">React</span>
-                                    <span class="tag tag--node">Node.js</span>
+                        </div>
+
+                        <!-- 3D Feature Card 2 -->
+                        <div class="feature-3d-card" data-tilt>
+                            <div class="feature-3d-card__inner">
+                                <div class="feature-3d-card__face feature-3d-card__face--front">
+                                    <div class="feature-3d-card__icon">🚀</div>
+                                    <h3 class="feature-3d-card__title">Высокая производительность</h3>
+                                    <p class="feature-3d-card__text">
+                                        Оптимизированные решения для максимальной скорости
+                                    </p>
+                                    <div class="feature-3d-card__hover-text">Наведите для 3D эффекта</div>
+                                </div>
+                                <div class="feature-3d-card__face feature-3d-card__face--back">
+                                    <h4>Оптимизация</h4>
+                                    <ul>
+                                        <li>Lazy Loading</li>
+                                        <li>Code Splitting</li>
+                                        <li>CDN</li>
+                                        <li>Caching</li>
+                                    </ul>
                                 </div>
                             </div>
-                        </article>
-                    </div>
-                </section>
-            </div>
-        </main>
+                        </div>
 
-        <footer class="footer">
-            <div class="container">
-                <div class="footer__content">
-                    <div class="footer__section">
-                        <h3 class="footer__title">NeoDesign</h3>
-                        <p class="footer__text">Инновационный дизайн для digital-эпохи</p>
-                    </div>
-                    <div class="footer__section">
-                        <h3 class="footer__title">Контакты</h3>
-                        <ul class="footer__links">
-                            <li><a href="mailto:hello@neodesign.ru" class="footer__link">hello@neodesign.ru</a></li>
-                            <li><a href="tel:+79991234567" class="footer__link">+7 (999) 123-45-67</a></li>
-                        </ul>
+                        <!-- 3D Feature Card 3 -->
+                        <div class="feature-3d-card" data-tilt>
+                            <div class="feature-3d-card__inner">
+                                <div class="feature-3d-card__face feature-3d-card__face--front">
+                                    <div class="feature-3d-card__icon">📱</div>
+                                    <h3 class="feature-3d-card__title">Адаптивность</h3>
+                                    <p class="feature-3d-card__text">
+                                        Идеальное отображение на всех устройствах
+                                    </p>
+                                    <div class="feature-3d-card__hover-text">Наведите для 3D эффекта</div>
+                                </div>
+                                <div class="feature-3d-card__face feature-3d-card__face--back">
+                                    <h4>Поддержка</h4>
+                                    <ul>
+                                        <li>Mobile First</li>
+                                        <li>Tablet</li>
+                                        <li>Desktop</li>
+                                        <li>4K Screens</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+            <!-- Video Showcase Section -->
+            <section class="video-showcase">
+                <div class="container">
+                    <div class="video-showcase__header">
+                        <h2 class="video-showcase__title">Демо наших возможностей</h2>
+                        <p class="video-showcase__subtitle">Увидите, как мы превращаем идеи в реальность</p>
+                    </div>
+
+                    <div class="video-showcase__content">
+                        <div class="video-card video-card--interactive">
+                            <div class="video-card__preview">
+                                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                                     alt="Демо проект" class="video-card__image">
+                                <div class="video-card__play-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                                    <div class="play-icon"></div>
+                                </div>
+                                <div class="video-card__hover-effect"></div>
+                            </div>
+                            <div class="video-card__content">
+                                <h3 class="video-card__title">Интерактивный портал</h3>
+                                <p class="video-card__description">
+                                    Современное решение для корпоративного сайта с 3D элементами
+                                </p>
+                                <div class="video-card__tags">
+                                    <span class="tag tag--react">React</span>
+                                    <span class="tag tag--threejs">Three.js</span>
+                                    <span class="tag tag--gsap">GSAP</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-grid">
+                            <div class="video-thumbnail" data-video="https://www.youtube.com/embed/7NOSDKb0HlU">
+                                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" 
+                                     alt="Мобильное приложение" class="video-thumbnail__image">
+                                <div class="video-thumbnail__overlay">
+                                    <div class="play-icon play-icon--small"></div>
+                                    <span>Мобильная разработка</span>
+                                </div>
+                            </div>
+                            <div class="video-thumbnail" data-video="https://www.youtube.com/embed/f02mOEt11OQ">
+                                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" 
+                                     alt="Веб-дизайн" class="video-thumbnail__image">
+                                <div class="video-thumbnail__overlay">
+                                    <div class="play-icon play-icon--small"></div>
+                                    <span>Веб-дизайн</span>
+                                </div>
+                            </div>
+                            <div class="video-thumbnail" data-video="https://www.youtube.com/embed/hW1e0tZj6C4">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" 
+                                     alt="UI/UX дизайн" class="video-thumbnail__image">
+                                <div class="video-thumbnail__overlay">
+                                    <div class="play-icon play-icon--small"></div>
+                                    <span>UI/UX дизайн</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Enhanced Projects Section -->
+            <section class="projects projects--interactive" id="projects">
+                <div class="container">
+                    <div class="projects__header">
+                        <h2 class="projects__title projects__title--glitch" data-text="Наши проекты">
+                            Наши проекты
+                        </h2>
+                        <p class="projects__subtitle">
+                            Реализованные решения, которые меняют правила игры
+                        </p>
+                    </div>
+
+                    <div class="projects__grid projects__grid--masonry">
+                        <!-- Project with 3D effect -->
+                        <div class="project-3d-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                            <div class="project-3d-card__image">
+                                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                                     alt="Корпоративный портал" class="project-3d-card__img">
+                                <div class="project-3d-card__overlay">
+                                    <button class="project-3d-card__view-btn" data-project="1">
+                                        <span>Смотреть кейс</span>
+                                        <div class="project-3d-card__arrow">→</div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-3d-card__content">
+                                <h3 class="project-3d-card__title">Корпоративный портал</h3>
+                                <p class="project-3d-card__description">
+                                    Инновационная платформа для управления бизнес-процессами
+                                </p>
+                                <div class="project-3d-card__stats">
+                                    <div class="project-stat">
+                                        <div class="project-stat__value">+45%</div>
+                                        <div class="project-stat__label">Эффективность</div>
+                                    </div>
+                                    <div class="project-stat">
+                                        <div class="project-stat__value">6 мес.</div>
+                                        <div class="project-stat__label">Разработка</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project with interactive demo -->
+                        <div class="project-interactive-card">
+                            <div class="project-interactive-card__scene">
+                                <div class="project-interactive-card__device">
+                                    <div class="project-interactive-card__screen">
+                                        <div class="project-interactive-card__demo-content">
+                                            <div class="demo-animation">
+                                                <div class="demo-circle demo-circle--1"></div>
+                                                <div class="demo-circle demo-circle--2"></div>
+                                                <div class="demo-circle demo-circle--3"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-interactive-card__info">
+                                <h3 class="project-interactive-card__title">Интерактивная платформа</h3>
+                                <p class="project-interactive-card__description">
+                                    Real-time дашборд с анимированной визуализацией данных
+                                </p>
+                                <button class="project-interactive-card__cta" data-modal-open="demoModal">
+                                    Запустить демо
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech Stack Section -->
+            <section class="tech-stack">
+                <div class="container">
+                    <div class="tech-stack__header">
+                        <h2 class="tech-stack__title">Технологический стек</h2>
+                        <p class="tech-stack__subtitle">Современные инструменты для выдающихся результатов</p>
+                    </div>
+                    
+                    <div class="tech-stack__grid">
+                        <div class="tech-item" data-tech="react">
+                            <div class="tech-item__icon">⚛️</div>
+                            <div class="tech-item__name">React</div>
+                            <div class="tech-item__progress">
+                                <div class="tech-item__progress-bar" data-level="95"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tech="vue">
+                            <div class="tech-item__icon">🟢</div>
+                            <div class="tech-item__name">Vue.js</div>
+                            <div class="tech-item__progress">
+                                <div class="tech-item__progress-bar" data-level="85"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tech="threejs">
+                            <div class="tech-item__icon">🎮</div>
+                            <div class="tech-item__name">Three.js</div>
+                            <div class="tech-item__progress">
+                                <div class="tech-item__progress-bar" data-level="90"></div>
+                            </div>
+                        </div>
+                        <div class="tech-item" data-tech="gsap">
+                            <div class="tech-item__icon">🎬</div>
+                            <div class="tech-item__name">GSAP</div>
+                            <div class="tech-item__progress">
+                                <div class="tech-item__progress-bar" data-level="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Enhanced Footer -->
+        <footer class="footer footer--interactive">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__main">
+                        <div class="footer__brand">
+                            <div class="footer__logo">NeoDesign</div>
+                            <p class="footer__tagline">
+                                Создаем digital-будущее сегодня
+                            </p>
+                            <div class="footer__social">
+                                <a href="#" class="social-link social-link--github" aria-label="GitHub">
+                                    <span class="social-link__icon">💻</span>
+                                </a>
+                                <a href="#" class="social-link social-link--dribbble" aria-label="Dribbble">
+                                    <span class="social-link__icon">🎨</span>
+                                </a>
+                                <a href="#" class="social-link social-link--linkedin" aria-label="LinkedIn">
+                                    <span class="social-link__icon">💼</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="footer__newsletter">
+                            <h3 class="footer__newsletter-title">Будьте в курсе</h3>
+                            <p class="footer__newsletter-text">
+                                Получайте уведомления о новых возможностях
+                            </p>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Ваш email" class="newsletter-form__input" required>
+                                <button type="submit" class="newsletter-form__submit">
+                                    <span>Подписаться</span>
+                                    <div class="newsletter-form__arrow">→</div>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="footer__bottom">
-                    <p class="footer__copyright">&copy; 2023 NeoDesign. Все права защищены.</p>
+                    <p class="footer__copyright">
+                        &copy; 2024 NeoDesign. Все права защищены.
+                    </p>
+                    <div class="footer__particles" id="footerParticles"></div>
                 </div>
             </div>
         </footer>
     </div>
 
-    <!-- Модальное окно -->
-    <dialog id="contactModal" class="modal">
-        <div class="modal__content">
-            <button class="modal__close" data-modal-close aria-label="Закрыть">×</button>
-            <div class="modal__header">
-                <h2 class="modal__title">Обсудим ваш проект</h2>
-                <p class="modal__subtitle">Заполните форму и мы свяжемся с вами в течение 2 часов</p>
+    <!-- Enhanced Modal -->
+    <dialog id="demoModal" class="modal modal--enhanced">
+        <div class="modal__container">
+            <button class="modal__close modal__close--enhanced" data-modal-close aria-label="Закрыть">
+                <div class="modal__close-icon"></div>
+            </button>
+            
+            <div class="modal__content modal__content--video">
+                <div class="modal__video-container">
+                    <iframe class="modal__video" 
+                            src=""
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="modal__info">
+                    <h2 class="modal__title">Демонстрация проекта</h2>
+                    <p class="modal__description">
+                        Посмотрите, как наши решения работают в реальных условиях
+                    </p>
+                    <div class="modal__tech">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Three.js</span>
+                        <span class="tech-badge">Node.js</span>
+                    </div>
+                </div>
             </div>
-            <form class="form" id="contactForm" data-validate>
-                <div class="form__grid">
-                    <div class="form__group">
-                        <label for="name" class="form__label">Имя *</label>
-                        <input type="text" id="name" name="name" class="form__input" required minlength="2">
-                    </div>
-                    <div class="form__group">
-                        <label for="email" class="form__label">Email *</label>
-                        <input type="email" id="email" name="email" class="form__input" required>
-                    </div>
-                </div>
-                <div class="form__group">
-                    <label for="phone" class="form__label">Телефон</label>
-                    <input type="tel" id="phone" name="phone" class="form__input" placeholder="+7 (___) ___-__-__">
-                </div>
-                <div class="form__group">
-                    <label for="message" class="form__label">Сообщение *</label>
-                    <textarea id="message" name="message" class="form__textarea" required rows="4"></textarea>
-                </div>
-                <div class="form__actions">
-                    <button type="button" class="btn btn--secondary" data-modal-close>Отмена</button>
-                    <button type="submit" class="btn btn--primary">Отправить</button>
-                </div>
-            </form>
         </div>
     </dialog>
 
-    <script src="main.js"></script>
+    <!-- Project Detail Modal -->
+    <dialog id="projectModal" class="modal modal--project">
+        <div class="modal__container">
+            <button class="modal__close" data-modal-close aria-label="Закрыть">×</button>
+            <div class="modal__content" id="projectModalContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Audio Elements -->
+    <audio id="hoverSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="clickSound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-click-button-1109.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
