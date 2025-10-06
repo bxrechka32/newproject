@@ -1429,3 +1429,167 @@ body {
         color: black !important;
     }
 }
+/* === NOTIFICATION STYLES === */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--color-surface-current);
+    border: 1px solid var(--color-border-current);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-xl);
+    z-index: var(--z-modal);
+    transform: translateX(400px);
+    transition: var(--transition);
+    max-width: 400px;
+}
+
+.notification--show {
+    transform: translateX(0);
+}
+
+.notification--success {
+    border-left: 4px solid var(--color-success);
+}
+
+.notification--error {
+    border-left: 4px solid var(--color-danger);
+}
+
+.notification__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.notification__message {
+    color: var(--color-foreground);
+    font-weight: var(--font-weight-medium);
+    flex: 1;
+}
+
+.notification__close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--color-text-muted-current);
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.notification__close:hover {
+    background: var(--color-surface-hover-current);
+    color: var(--color-foreground);
+}
+
+/* === FIXED MODAL STYLES === */
+.modal {
+    border: none;
+    border-radius: var(--radius-xl);
+    width: min(95vw, 600px);
+    background: var(--color-surface-current);
+    color: var(--color-foreground);
+    box-shadow: var(--shadow-xl);
+    padding: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.modal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal[open] {
+    animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === PROGRESS BARS ANIMATION === */
+.progress__bar {
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === PRODUCT CARD SELECTION === */
+.product-card--selected {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+    transform: translateY(-5px);
+}
+
+/* === THEME TOGGLE FIXES === */
+.theme-toggle {
+    background: var(--color-surface-current);
+    border: 1px solid var(--color-border-current);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.25rem;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
+    box-shadow: var(--shadow);
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+}
+
+/* === ACCESSIBILITY IMPROVEMENTS === */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* === FOCUS VISIBLE POLYFILL */
+.js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animate--in {
+    opacity: 1;
+    transform: translateY(0);
+}
