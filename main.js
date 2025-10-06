@@ -527,3 +527,13 @@ window.addEventListener('error', (e) => {
 window.addEventListener('unhandledrejection', (e) => {
     console.error('Unhandled promise rejection:', e.reason);
 });
+
+// Emergency fallback - hide loading screen no matter what
+setTimeout(() => {
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen && loadingScreen.style.display !== 'none') {
+        console.log('🆘 Emergency: Force hiding loading screen');
+        loadingScreen.style.display = 'none';
+        document.body.classList.add('loaded');
+    }
+}, 5000);
