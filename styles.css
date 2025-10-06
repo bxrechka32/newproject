@@ -803,3 +803,19 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+.loading-screen {
+    /* существующие стили */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+body.loaded .loading-screen {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Fallback если JS сломан */
+.no-js .loading-screen {
+    display: none;
+}
