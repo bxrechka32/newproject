@@ -11,9 +11,12 @@ class ThemeManager {
     }
     
     bindEvents() {
-        document.querySelector('.theme-toggle').addEventListener('click', () => {
-            this.toggle();
-        });
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                this.toggle();
+            });
+        }
     }
     
     toggle() {
@@ -33,20 +36,23 @@ class ModalManager {
     init() {
         document.querySelectorAll('dialog').forEach(dialog => {
             const id = dialog.id;
-            const openBtn = document.querySelector(`[data-modal-open="${id}"]`);
+            const openBtns = document.querySelectorAll(`[data-modal-open="${id}"]`);
             const closeBtn = dialog.querySelector('[data-modal-close]');
             
-            if (openBtn && closeBtn) {
-                this.modals.set(id, { dialog, openBtn, closeBtn });
+            if (openBtns.length > 0 && closeBtn) {
+                this.modals.set(id, { dialog, openBtns, closeBtn });
                 this.bindModalEvents(id);
             }
         });
     }
     
     bindModalEvents(modalId) {
-        const { dialog, openBtn, closeBtn } = this.modals.get(modalId);
+        const { dialog, openBtns, closeBtn } = this.modals.get(modalId);
         
-        openBtn.addEventListener('click', () => this.open(modalId));
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', () => this.open(modalId));
+        });
+        
         closeBtn.addEventListener('click', () => this.close(modalId));
         
         dialog.addEventListener('click', (e) => {
@@ -155,7 +161,7 @@ class FormValidator {
         console.log('Форма отправлена:', data);
         
         // Показываем уведомление
-        this.showSuccessMessage(form);
+        this.showSuccessMessage();
         
         // Закрываем модалку если она есть
         const dialog = form.closest('dialog');
@@ -166,7 +172,7 @@ class FormValidator {
         form.reset();
     }
     
-    showSuccessMessage(form) {
+    showSuccessMessage() {
         alert('✅ Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.');
     }
 }
@@ -248,9 +254,16 @@ document.addEventListener('DOMContentLoaded', () => {
     new FormValidator();
     new ScrollAnimator();
     new PhoneMask();
+    
+    // Добавляем классы для анимаций при скролле
+    document.querySelectorAll('.feature-card, .value-card, .contact-card, .project-card').forEach(card => {
+        card.classList.add('animate-on-scroll');
+    });
 });
 
-// === ПОЛИФИЛЛ ДЛЯ DIALOG ===
+// === ПОЛИФИЛЛ ДЛЯ DIALOG (для старых браузеров) ===
 if (typeof HTMLDialogElement !== 'function') {
-    await import('https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.6/dist/dialog-polyfill.esm.js');
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/dialog-polyfill@0.5.6/dist/dialog-polyfill.esm.js';
+    document.head.appendChild(script);
 }
